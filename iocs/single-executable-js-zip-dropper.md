@@ -1,0 +1,48 @@
+# Node.js single-executable dropper that fetches two password-protected ZIPs and runs their executables hidden
+
+Verdict: malicious.
+
+## Indicators
+
+### Malicious
+
+| IOC | Type | Value | Context |
+|---|---|---|---|
+| Dropper | SHA-256 | 2b99aae08694c39d34eb0c16409beaa4edb7422fc41bb2e7076409b9396b926a | `setup.exe` in `Fortnite.rar` and `RustSoft.exe` in `RustSoft.rar`, 90,278,912 B, minified template; Node.js v24.12.0 SEA, unsigned |
+| Dropper | SHA-256 | 320b088777a94d53e5c190e2d3626d0ad677885711576740ff4d738c88a5ac3e | `lunchx86.exe.exe` in `UpdtLnch.rar` inside `UPDATE.zip`, 90,441,728 B, readable template; Node.js v24.12.0 SEA, unsigned |
+| Dropper | SHA-256 | 7b4a038aed04cb4e077f2928a26e1ef6a333034dfb0ac8ff01bc0c2a545452cf | `loader.exe` in `loader.zip`, 90,272,768 B, minified template; Node.js v24.12.0 SEA, unsigned |
+| Dropper | SHA-256 | 99a5933435aad8dd5c1e5bd8fdd1803bc68e7117e046952fa191d773b9120720 | `Loader.exe` in `Loader.zip`, 90,263,552 B, minified template; Node.js v24.12.0 SEA, unsigned |
+| Dropper | SHA-256 | a00d02a369fd54647cfddb83b12835725c308d82ed8b8a87b14c6d6aa58ccf23 | `installer.exe` in `installer.zip`, 90,406,400 B, readable template; Node.js v24.12.0 SEA, unsigned |
+| Dropper | SHA-256 | c6fe15e2904829970647118f617f4517249261ec167be0acc0d8fd180fb10ba1 | `Zeus.exe` in `Zeus.zip`, 90,442,752 B, readable template; Node.js v24.12.0 SEA, unsigned |
+| Dropper | SHA-256 | f4948d5d5d3d4d4a8bbfe271eeb208fb4f4efd26be2d344ddfd7b8f2a3ef6aee | `build.exe` in `25.rar`, 90,278,912 B, minified template; Node.js v24.12.0 SEA, unsigned |
+| ZIP host | Domain | point.matericofhal.rest | HTTPS on port 443; host of the ZIP URLs set in the seven droppers: `setup.exe` and `RustSoft.exe` (SHA-256 of file 2b99aae08694c39d34eb0c16409beaa4edb7422fc41bb2e7076409b9396b926a); `lunchx86.exe.exe` (SHA-256 of file 320b088777a94d53e5c190e2d3626d0ad677885711576740ff4d738c88a5ac3e); `loader.exe` (SHA-256 of file 7b4a038aed04cb4e077f2928a26e1ef6a333034dfb0ac8ff01bc0c2a545452cf); `Loader.exe` (SHA-256 of file 99a5933435aad8dd5c1e5bd8fdd1803bc68e7117e046952fa191d773b9120720); `installer.exe` (SHA-256 of file a00d02a369fd54647cfddb83b12835725c308d82ed8b8a87b14c6d6aa58ccf23); `Zeus.exe` (SHA-256 of file c6fe15e2904829970647118f617f4517249261ec167be0acc0d8fd180fb10ba1); `build.exe` (SHA-256 of file f4948d5d5d3d4d4a8bbfe271eeb208fb4f4efd26be2d344ddfd7b8f2a3ef6aee) |
+| ZIP URL | URL | https://point.matericofhal.rest/w0gsqjf3hmb5i6d/runtime.zip | URL of `runtime.zip`; HTTPS; decoded from dropper `setup.exe` and `RustSoft.exe` (SHA-256 of file 2b99aae08694c39d34eb0c16409beaa4edb7422fc41bb2e7076409b9396b926a) |
+| ZIP URL | URL | https://point.matericofhal.rest/w0gsqjf3hmb5i6d/cmake.zip | URL of `cmake.zip`; HTTPS; decoded from dropper `setup.exe` and `RustSoft.exe` (SHA-256 of file 2b99aae08694c39d34eb0c16409beaa4edb7422fc41bb2e7076409b9396b926a) |
+| ZIP URL | URL | https://point.matericofhal.rest/bm7snzr6ybhrjul/runtime.zip | URL of `runtime.zip`; HTTPS; decoded from dropper `lunchx86.exe.exe` (SHA-256 of file 320b088777a94d53e5c190e2d3626d0ad677885711576740ff4d738c88a5ac3e) |
+| ZIP URL | URL | https://point.matericofhal.rest/bm7snzr6ybhrjul/cmake.zip | URL of `cmake.zip`; HTTPS; decoded from dropper `lunchx86.exe.exe` (SHA-256 of file 320b088777a94d53e5c190e2d3626d0ad677885711576740ff4d738c88a5ac3e) |
+| ZIP URL | URL | https://point.matericofhal.rest/8qz2fvancvm6zfm/runtime.zip | URL of `runtime.zip`; HTTPS; decoded from dropper `loader.exe` (SHA-256 of file 7b4a038aed04cb4e077f2928a26e1ef6a333034dfb0ac8ff01bc0c2a545452cf) |
+| ZIP URL | URL | https://point.matericofhal.rest/8qz2fvancvm6zfm/cmake.zip | URL of `cmake.zip`; HTTPS; decoded from dropper `loader.exe` (SHA-256 of file 7b4a038aed04cb4e077f2928a26e1ef6a333034dfb0ac8ff01bc0c2a545452cf) |
+| ZIP URL | URL | https://point.matericofhal.rest/2zr5sgcmz63mjgy/runtime.zip | URL of `runtime.zip`; HTTPS; decoded from dropper `Loader.exe` (SHA-256 of file 99a5933435aad8dd5c1e5bd8fdd1803bc68e7117e046952fa191d773b9120720) |
+| ZIP URL | URL | https://point.matericofhal.rest/2zr5sgcmz63mjgy/cmake.zip | URL of `cmake.zip`; HTTPS; decoded from dropper `Loader.exe` (SHA-256 of file 99a5933435aad8dd5c1e5bd8fdd1803bc68e7117e046952fa191d773b9120720) |
+| ZIP URL | URL | https://point.matericofhal.rest/noua4imjzerxn15/runtime.zip | URL of `runtime.zip`; HTTPS; decoded from dropper `installer.exe` (SHA-256 of file a00d02a369fd54647cfddb83b12835725c308d82ed8b8a87b14c6d6aa58ccf23) |
+| ZIP URL | URL | https://point.matericofhal.rest/noua4imjzerxn15/cmake.zip | URL of `cmake.zip`; HTTPS; decoded from dropper `installer.exe` (SHA-256 of file a00d02a369fd54647cfddb83b12835725c308d82ed8b8a87b14c6d6aa58ccf23) |
+| ZIP URL | URL | https://point.matericofhal.rest/7y8jvc9v4irwvts/runtime.zip | URL of `runtime.zip`; HTTPS; decoded from dropper `Zeus.exe` (SHA-256 of file c6fe15e2904829970647118f617f4517249261ec167be0acc0d8fd180fb10ba1) |
+| ZIP URL | URL | https://point.matericofhal.rest/7y8jvc9v4irwvts/cmake.zip | URL of `cmake.zip`; HTTPS; decoded from dropper `Zeus.exe` (SHA-256 of file c6fe15e2904829970647118f617f4517249261ec167be0acc0d8fd180fb10ba1) |
+| ZIP URL | URL | https://point.matericofhal.rest/0d5uwjocchmiaod/runtime.zip | URL of `runtime.zip`; HTTPS; decoded from dropper `build.exe` (SHA-256 of file f4948d5d5d3d4d4a8bbfe271eeb208fb4f4efd26be2d344ddfd7b8f2a3ef6aee) |
+| ZIP URL | URL | https://point.matericofhal.rest/0d5uwjocchmiaod/cmake.zip | URL of `cmake.zip`; HTTPS; decoded from dropper `build.exe` (SHA-256 of file f4948d5d5d3d4d4a8bbfe271eeb208fb4f4efd26be2d344ddfd7b8f2a3ef6aee) |
+| Archive | SHA-256 | dfb3b708074e4d70280bf63d5ae79a5561f76d8a53e0a3a82cdb0438727bfc8d | `25.rar`; holds `build.exe` (SHA-256 of file f4948d5d5d3d4d4a8bbfe271eeb208fb4f4efd26be2d344ddfd7b8f2a3ef6aee) |
+| Download | URL | https://www.mediafire.com/file/c66dz9423jk1ecg/25.rar/file | Served `25.rar` (SHA-256 of file dfb3b708074e4d70280bf63d5ae79a5561f76d8a53e0a3a82cdb0438727bfc8d), which holds `build.exe` (SHA-256 of file f4948d5d5d3d4d4a8bbfe271eeb208fb4f4efd26be2d344ddfd7b8f2a3ef6aee) |
+| Archive | SHA-256 | f2a0ba5605dca78744cc4f67fab4c49e8e679eb0a2c3caa07de4642a8683bfa5 | `Fortnite.rar`; holds `setup.exe` (SHA-256 of file 2b99aae08694c39d34eb0c16409beaa4edb7422fc41bb2e7076409b9396b926a) |
+| Download | URL | https://www.mediafire.com/file/hrnjgdd3pybs25x/Fortnite.rar/file | Served `Fortnite.rar` (SHA-256 of file f2a0ba5605dca78744cc4f67fab4c49e8e679eb0a2c3caa07de4642a8683bfa5), which holds `setup.exe` (SHA-256 of file 2b99aae08694c39d34eb0c16409beaa4edb7422fc41bb2e7076409b9396b926a) |
+| Archive | SHA-256 | e2670e519293d687ed91e9173562f3ecc85890e9084c20b8d8285c98bba66b2e | `installer.zip`; holds `installer.exe` (SHA-256 of file a00d02a369fd54647cfddb83b12835725c308d82ed8b8a87b14c6d6aa58ccf23) |
+| Download | URL | https://www.mediafire.com/file/lpzqcjejro9gryl/installer.zip/file | Served `installer.zip` (SHA-256 of file e2670e519293d687ed91e9173562f3ecc85890e9084c20b8d8285c98bba66b2e), which holds `installer.exe` (SHA-256 of file a00d02a369fd54647cfddb83b12835725c308d82ed8b8a87b14c6d6aa58ccf23) |
+| Archive | SHA-256 | e4cf993666081b1e10d8ae1dbe60d194f5f70b030f167b09779e9eac9997874d | `Loader.zip`; holds `Loader.exe` (SHA-256 of file 99a5933435aad8dd5c1e5bd8fdd1803bc68e7117e046952fa191d773b9120720) |
+| Download | URL | https://www.mediafire.com/file/vzflx4v3np0t4f3/Loader.zip/file | Served `Loader.zip` (SHA-256 of file e4cf993666081b1e10d8ae1dbe60d194f5f70b030f167b09779e9eac9997874d), which holds `Loader.exe` (SHA-256 of file 99a5933435aad8dd5c1e5bd8fdd1803bc68e7117e046952fa191d773b9120720) |
+| Archive | SHA-256 | fa7111571f88d59dda487809af28d219860c542cb4c81ba4f2ea0b44aff567ba | `loader.zip`; holds `loader.exe` (SHA-256 of file 7b4a038aed04cb4e077f2928a26e1ef6a333034dfb0ac8ff01bc0c2a545452cf) |
+| Download | URL | https://www.mediafire.com/file/2nz5gz6610otvcf/loader.zip/file | Served `loader.zip` (SHA-256 of file fa7111571f88d59dda487809af28d219860c542cb4c81ba4f2ea0b44aff567ba), which holds `loader.exe` (SHA-256 of file 7b4a038aed04cb4e077f2928a26e1ef6a333034dfb0ac8ff01bc0c2a545452cf) |
+| Archive | SHA-256 | e193180929ae201a8f28f390d28111c47056e1f3e3c4b729dd5f26044fcd5d1c | `RustSoft.rar`; holds `RustSoft.exe` (SHA-256 of file 2b99aae08694c39d34eb0c16409beaa4edb7422fc41bb2e7076409b9396b926a) |
+| Download | URL | https://www.mediafire.com/file/5y6eeulbhtzcbws/RustSoft.rar/file | Served `RustSoft.rar` (SHA-256 of file e193180929ae201a8f28f390d28111c47056e1f3e3c4b729dd5f26044fcd5d1c), which holds `RustSoft.exe` (SHA-256 of file 2b99aae08694c39d34eb0c16409beaa4edb7422fc41bb2e7076409b9396b926a) |
+| Archive | SHA-256 | 17e4fe3f5ff06c315e6fdeeecd7c70b55b563ec8897e0ac87e0c6b21c2c8e24b | `UPDATE.zip`; holds `UpdtLnch.rar`, which holds `lunchx86.exe.exe` (SHA-256 of file 320b088777a94d53e5c190e2d3626d0ad677885711576740ff4d738c88a5ac3e) |
+| Download | URL | https://www.mediafire.com/file/8pygjxc7sx7b1wq/UPDATE.zip/file | Served `UPDATE.zip` (SHA-256 of file 17e4fe3f5ff06c315e6fdeeecd7c70b55b563ec8897e0ac87e0c6b21c2c8e24b), which holds `UpdtLnch.rar`, which holds `lunchx86.exe.exe` (SHA-256 of file 320b088777a94d53e5c190e2d3626d0ad677885711576740ff4d738c88a5ac3e) |
+| Archive | SHA-256 | 4369c2994318a3cd8ed5b94d94cd6b2be7c00a79d72d8e6e79142d3aaa60db2a | `Zeus.zip`; holds `Zeus.exe` (SHA-256 of file c6fe15e2904829970647118f617f4517249261ec167be0acc0d8fd180fb10ba1) |
+| Download | URL | https://www.mediafire.com/file/k96xovsafz62svd/Zeus.zip/file | Served `Zeus.zip` (SHA-256 of file 4369c2994318a3cd8ed5b94d94cd6b2be7c00a79d72d8e6e79142d3aaa60db2a), which holds `Zeus.exe` (SHA-256 of file c6fe15e2904829970647118f617f4517249261ec167be0acc0d8fd180fb10ba1) |
